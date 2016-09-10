@@ -4,6 +4,7 @@ public class AplicacaoEmpresa {
 
 	public static void main(String[] args) {
 		
+		//Criando um objeto do tipo Empregado via Construtor
 		Empregado novoEmpregado = new Empregado("Marcos", "2015001A", 1000.00);
 		
 		System.out.print("Funcionário: " +novoEmpregado.nome 

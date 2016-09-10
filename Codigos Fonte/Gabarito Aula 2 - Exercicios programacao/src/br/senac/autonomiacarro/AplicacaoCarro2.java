@@ -10,13 +10,17 @@ public class AplicacaoCarro2 {
 
 	public static void main(String[] args) {
 		
+		//Criando um objeto do tipo Carro
 		Carro novoCarro = new Carro();
 		novoCarro.modelo = "Novo Uno";
 		novoCarro.capacidadeTanque = 40.0;
 		novoCarro.consumoLitro = 12.0;
 		
-		int resp = 0;
-		String opcao;
+		//Variáveis para controle da interação do programa com o usuário
+		int resp = 0; //Variável para controle da repetição do programa
+		String opcao;//Variável para controle da decisão da escolha de opção
+		
+		//Loop para controlar se o usuário deseja continuar usando o programa
 		while (resp == 0){
 			opcao = JOptionPane.showInputDialog("Digite 1 para saber a autonomia do carro \n"
 					+"Digite 2 para entrar com uma distância e saber a quantidade de tanques necessários");

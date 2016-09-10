@@ -7,16 +7,18 @@ import javax.swing.JOptionPane;
 public class AplicacaoCachorro2 {
 	public static void main(String[] args) {
 
+		//Criando um novo objeto do tipo Cachorro
 		Cachorro novoCao = new Cachorro();
 
+		//Inicializando o valor dos atributos
 		novoCao.nome = "Bidu";
 		novoCao.raca = "Schnauzer";
 		novoCao.corPelo = "Azul";
 		novoCao.peso = 6.5;
 
 		//Variáveis para controlar o menu de opções
-		int resp = 0;
-		String opcao = "";
+		int resp = 0; //Variável para controlar a repetição do programa
+		String opcao = ""; //Variável para controlar a escolha da opção
 		//Loop para sempre perguntar ao usuário se deseja continuar a executar o programa
 		while(resp == 0){
 			opcao = JOptionPane.showInputDialog("Digite 1 para o cão latir." +"\n"

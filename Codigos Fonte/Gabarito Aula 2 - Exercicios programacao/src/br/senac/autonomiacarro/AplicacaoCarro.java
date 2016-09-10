@@ -8,6 +8,7 @@ public class AplicacaoCarro {
 
 	public static void main(String[] args) {
 		
+		//Criando um objeto do tipo Carro
 		Carro novoCarro = new Carro();
 		
 		novoCarro.modelo = "Novo Uno";
