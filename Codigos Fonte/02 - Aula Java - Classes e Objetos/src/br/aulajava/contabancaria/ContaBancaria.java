@@ -1,4 +1,4 @@
-package br.senac.contabancaria;
+package br.aulajava.contabancaria;
 
 public class ContaBancaria {
 

@@ -1,4 +1,4 @@
-package br.senac.classesimples;
+package br.aulajava.classesimples;
 
 public class ExemploMetodos {
 	

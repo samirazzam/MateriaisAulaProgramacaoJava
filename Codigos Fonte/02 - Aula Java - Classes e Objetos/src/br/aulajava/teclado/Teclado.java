@@ -1,4 +1,4 @@
-package br.senac.teclado;
+package br.aulajava.teclado;
 
 public class Teclado {
 	
