@@ -1,15 +1,12 @@
 package br.aulasjava.exemplomenu.modelo;
 
 public class Cliente {
-	
 	//Atributos da classe
 	private String nome;
 	private String cpf;
 	private String telefone;
 	private int anoNascimento;
-	
 	//Construtores
-	
 	public Cliente(){}
 	
 	public Cliente(String nome, String cpf, String telefone, int anoNascimento) {
@@ -18,7 +15,6 @@ public class Cliente {
 		this.telefone = telefone;
 		this.anoNascimento = anoNascimento;
 	}
-
 	//Getters & Setters
 	public String getNome() {
 		return nome;
