@@ -11,12 +11,14 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
+import br.aulasjava.exemplomenu.persistencia.ClienteDao;
+
 public class TelaPrincipal extends JFrame{
 	
 	//Atributos dos objetos de composição da tela principal
 	private JMenuBar menuBarra;
 	private JMenu menuCadastro, menuPesquisa;
-	private JMenuItem itemCadastroCliente, itemSair, itemPesquisaCliente;
+	private JMenuItem itemCadastroCliente, itemSair, itemPesquisaCliente, itemLerArquivo;
 	private JDesktopPane painelDesktop;
 	private TelaCadastroCliente telaCadastroCliente;
 
@@ -41,6 +43,7 @@ public class TelaPrincipal extends JFrame{
 		itemCadastroCliente = new JMenuItem("Cadastro de clientes");
 		itemSair = new JMenuItem("Sair do programa");
 		itemPesquisaCliente = new JMenuItem("Pesquisar cliente por CPF");
+		itemLerArquivo = new JMenuItem("Ler arquivo de cadastro");
 		//Adicionando menus na barra
 		menuBarra.add(menuCadastro);
 		menuBarra.add(menuPesquisa);
@@ -49,6 +52,8 @@ public class TelaPrincipal extends JFrame{
 		menuCadastro.addSeparator(); //Linha para separar os menus
 		menuCadastro.add(itemSair);
 		menuPesquisa.add(itemPesquisaCliente);
+		menuPesquisa.addSeparator();
+		menuPesquisa.add(itemLerArquivo);
 		//Adicionando a barra de menu na janela
 		setJMenuBar(menuBarra);
 		
@@ -59,6 +64,7 @@ public class TelaPrincipal extends JFrame{
 		itemCadastroCliente.addActionListener(ouvinte);
 		itemPesquisaCliente.addActionListener(ouvinte);
 		itemSair.addActionListener(ouvinte);
+		itemLerArquivo.addActionListener(ouvinte);
 		
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
@@ -92,8 +98,12 @@ public class TelaPrincipal extends JFrame{
 				}
 			}else if(evento.getSource() == itemPesquisaCliente){
 				JOptionPane.showMessageDialog(painelDesktop, "Funcionalidade em desenvolvimento.","Atenção", JOptionPane.WARNING_MESSAGE);
-			}else {
+			}
+			else if (evento.getSource() == itemSair){
 				sairPrograma(); //itemSair que chama o método privado sairPrograma, escrito lá em cima
+			}
+			else if (evento.getSource() == itemLerArquivo){
+				JOptionPane.showMessageDialog(painelDesktop, ClienteDao.lerDados());
 			}
 		}
 	}//fim classe interna

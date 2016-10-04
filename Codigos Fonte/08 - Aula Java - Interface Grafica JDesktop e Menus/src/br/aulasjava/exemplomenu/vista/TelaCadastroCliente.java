@@ -146,7 +146,8 @@ public class TelaCadastroCliente extends JInternalFrame{
 			novoCliente.setCpf(cxtCpf.getText());
 			novoCliente.setTelefone(cxtTel.getText());
 			novoCliente.setAnoNascimento(Integer.parseInt(cxtAnoNasc.getText()));
-			clienteDao = new ClienteDao(novoCliente);
+			clienteDao = new ClienteDao();
+			clienteDao.gravarDados(novoCliente);
 			desabilitaCampos(vetorCaixasTexto);
 		}
 	}//fim do método salvarCadastro

@@ -1,7 +1,9 @@
 package br.aulasjava.exemplomenu.persistencia;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 
 import javax.swing.JOptionPane;
@@ -14,7 +16,18 @@ public class ClienteDao {
 	private File arquivo;
 
 	//Construtor da classe
-	public ClienteDao(Cliente cliente){
+	public ClienteDao(){}
+
+	//Método para criar o arquivo vazio no HD
+	public void criarArquivo(){
+		try {
+			arquivo.createNewFile();
+		} catch (Exception evento) {
+			System.out.println("Erro ao gerar arquivo: " +evento.getMessage());
+		}
+	}
+	
+	public void gravarDados(Cliente cliente){
 		arquivo = new File("BancoDadosCliente.txt");
 		if(!arquivo.exists()){
 			criarArquivo();
@@ -36,14 +49,23 @@ public class ClienteDao {
 		} catch (Exception evento) {
 			JOptionPane.showMessageDialog(null, "Erro ao gravar dados: " +evento.getMessage());
 		}
-	}//fim do construtor
-
-	//Método para criar o arquivo vazio no HD
-	public void criarArquivo(){
+	}//fim do método gravarDados
+	
+	public static String lerDados(){
 		try {
-			arquivo.createNewFile();
+			FileReader leitorArquivo = new FileReader("BancoDadosCliente.txt");
+			BufferedReader bufferTexto  = new BufferedReader(leitorArquivo);
+			String saidaTexto = "";
+			while (bufferTexto.ready()){
+				String linhaTexto = bufferTexto.readLine();
+				saidaTexto = saidaTexto +linhaTexto +"\n";
+			}
+			bufferTexto.close();
+			return saidaTexto;
+			//System.out.println(saidaTexto);
 		} catch (Exception evento) {
-			System.out.println("Erro ao gerar arquivo: " +evento.getMessage());
+			System.out.println("Erro ao ler o arquivo" +evento.getMessage());
+			return "Erro ao ler o arquivo.";
 		}
 	}
 }
